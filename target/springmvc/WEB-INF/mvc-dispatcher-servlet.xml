@@ -9,12 +9,12 @@
         ">
     <mvc:annotation-driven/>
     <context:component-scan base-package="org.youdian.springmvc"/>
-    <context:annotation-config>
-    </context:annotation-config>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"/>
 
     <!-- Configure to plugin JSON as request and response in method handler -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -38,5 +38,6 @@
     <mvc:resources mapping="/js/**" location="/js/" />
     <!--<mvc:resources mapping="/**" location="/" />-->
     <mvc:resources mapping="/**" location="/jsp/" />
+
 
 </beans>
