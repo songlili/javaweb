@@ -50,6 +50,7 @@ public class JsonController {
         User user = new User(name, age, gender);
         log.debug("print user");
         log.debug(user);
+        log.error(user);
         userService.insertUser(user);
         return user;
     }
