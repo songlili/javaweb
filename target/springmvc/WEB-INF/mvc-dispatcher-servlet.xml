@@ -1,20 +1,25 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         ">
+
     <mvc:annotation-driven/>
+
+    <!-- 引入jdbc配置文件 -->
+    <context:property-placeholder location="classpath:conf/jdbc.properties"/>
+
+    <!--注入controller层-->
     <context:component-scan base-package="org.youdian.springmvc"/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
-    <bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"/>
 
     <!-- Configure to plugin JSON as request and response in method handler -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -32,12 +37,9 @@
     <!--配置静态资源-->
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving
     up static resources in the ${webappRoot}/resources directory -->
-    <mvc:resources mapping="/resources/**" location="/resources/" />
-    <mvc:resources mapping="/css/**" location="/css/" />
-    <mvc:resources mapping="/images/**" location="/images/" />
-    <mvc:resources mapping="/js/**" location="/js/" />
-    <!--<mvc:resources mapping="/**" location="/" />-->
-    <mvc:resources mapping="/**" location="/jsp/" />
-
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
 
 </beans>

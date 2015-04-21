@@ -1,4 +1,4 @@
-package org.youdian.springmvc;
+package org.youdian.springmvc.model;
 
 /**
  * Created by Admin on 2015/4/20.
