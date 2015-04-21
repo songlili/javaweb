@@ -1,5 +1,6 @@
 package org.youdian.springmvc.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class JsonController {
+    static Logger log = Logger.getLogger(JsonController.class);
     @Autowired
     private UserService userService;
     @ResponseBody
@@ -46,7 +48,8 @@ public class JsonController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public User newUser(String name, String age, String gender) {
         User user = new User(name, age, gender);
-        System.out.println(user);
+        log.debug("print user");
+        log.debug(user);
         userService.insertUser(user);
         return user;
     }
