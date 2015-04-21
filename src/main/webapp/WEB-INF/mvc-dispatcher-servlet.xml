@@ -14,7 +14,7 @@
     <context:property-placeholder location="classpath:conf/jdbc.properties"/>
 
     <!--注入controller层-->
-    <context:component-scan base-package="org.youdian.springmvc"/>
+    <context:component-scan base-package="org.youdian.springmvc.controller"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
